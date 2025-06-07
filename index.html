@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bucks2Bar</title>
+    <!-- Local Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Bootstrap CSS from CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css">
+     <meta charset="UTF-8">
+    <!--meta name="viewport" content="width=device-width, initial-scale=1.0"-->
+    <!--title>Chart.js Bar Chart Example</title-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#" style="font-size: 2.5rem;">Bucks2Bar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+         </form>
+        </div>
+      </div>
+    </nav>
+    <div class="container d-flex justify-content-between align-items-center">
+      <!-- Frame for username and password -->
+      <div class="card mb-4" style="max-width: 400px;">
+        <div class="card-body">
+          <h5 class="card-title mb-3">Login</h5>
+          <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" class="form-control" id="username" placeholder="Enter your username">
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" placeholder="Enter your password">
+          </div>
+          <div class="mb-3">
+            <a href="#" id="forgotPasswordLink" class="link-primary" data-bs-toggle="modal" data-bs-target="#forgotPasswordModal">Forgot password?</a>
+          </div>
+        </div>
+      </div>
+      <!-- Forgot Password Modal -->
+      <div class="modal fade" id="forgotPasswordModal" tabindex="-1" aria-labelledby="forgotPasswordModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="forgotPasswordModalLabel">Recover Password</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form id="recoverForm">
+                <div class="mb-3">
+                  <label for="recoveryEmail" class="form-label">Enter your email address</label>
+                  <input type="email" class="form-control" id="recoveryEmail" placeholder="Enter your email" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Recovery Email</button>
+              </form>
+              <div id="recoveryMessage" class="mt-3" style="display:none;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Search box and button -->
+      <form class="d-flex mb-4" role="search" style="max-width: 400px;">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="searchBox">
+        <button class="btn btn-outline-primary" type="button" id="searchButton">Search</button>
+      </form>
+    </div>
+        <h1>Welcome to Bucks2Bar</h1>
+        <p>This is a simple project using Bootstrap.</p>
+        
+    <div class="container mt-4">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="data-tab" data-bs-toggle="tab" data-bs-target="#data" type="button" role="tab" aria-controls="data" aria-selected="true">Data</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="chart-tab" data-bs-toggle="tab" data-bs-target="#chart" type="button" role="tab" aria-controls="chart" aria-selected="false">Chart</button>
+            </li>
+        </ul>
+        <div class="tab-content p-3 border border-top-0" id="myTabContent">
+            <div class="tab-pane fade show active" id="data" role="tabpanel" aria-labelledby="data-tab">
+                <div class="row">
+                  <div class="col-12 col-md-6">
+    <p>January</p>
+    <!-- First column content -->
+    <div class="row mb-3">
+      <div class="col-6">
+        <div class="input-group">
+          <span class="input-group-text" id="income1-label">Income</span>
+          <input type="number" class="form-control" id="income1" placeholder="Enter income" aria-label="Income" aria-describedby="income1-label">
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="input-group">
+          <span class="input-group-text" id="expenses1-label">Expenses</span>
+          <input type="number" class="form-control" id="expenses1" placeholder="Enter expenses" aria-label="Expenses" aria-describedby="expenses1-label">
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  
+  <div class="col-12 col-md-6">
+  <p>February</p>  
+    <!-- Second column content -->
+    <div class="row mb-3">
+      <div class="col-6">
+        <div class="input-group">
+          <span class="input-group-text" id="income2-label">Income</span>
+          <input type="number" class="form-control" id="income2" placeholder="Enter income" aria-label="Income" aria-describedby="income2-label">
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="input-group">
+          <span class="input-group-text" id="expenses2-label">Expenses</span>
+          <input type="number" class="form-control" id="expenses2" placeholder="Enter expenses" aria-label="Expenses" aria-describedby="expenses2-label">
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  <div class="col-12 col-md-6">
+    <p>March</p>
+    <!-- Third column content -->
+    <div class="row mb-3">
+      <div class="col-6">
+        <div class="input-group">
+          <span class="input-group-text" id="income3-label">Income</span>
+          <input type="number" class="form-control" id="income3" placeholder="Enter income" aria-label="Income" aria-describedby="income3-label">
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="input-group">
+          <span class="input-group-text" id="expenses3-label">Expenses</span>
+          <input type="number" class="form-control" id="expenses3" placeholder="Enter expenses" aria-label="Expenses" aria-describedby="expenses3-label">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-md-6">
+    <p>April</p>
+    <div class="row mb-3">
+      <div class="col-6">
+        <div class="input-group">
+          <span class="input-group-text" id="income4-label">Income</span>
+          <input type="number" class="form-control" id="income4" placeholder="Enter income" aria-label="Income" aria-describedby="income4-label">
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="input-group">
+          <span class="input-group-text" id="expenses4-label">Expenses</span>
+          <input type="number" class="form-control" id="expenses4" placeholder="Enter expenses" aria-label="Expenses" aria-describedby="expenses4-label">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-md-6">
+    <p>May</p>
+    <div class="row mb-3">
+      <div class="col-6">
+        <div class="input-group">
+          <span class="input-group-text" id="income5-label">Income</span>
+          <input type="number" class="form-control" id="income5" placeholder="Enter income" aria-label="Income" aria-describedby="income5-label">
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="input-group">
+          <span class="input-group-text" id="expenses5-label">Expenses</span>
+          <input type="number" class="form-control" id="expenses5" placeholder="Enter expenses" aria-label="Expenses" aria-describedby="expenses5-label">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-md-6">
+    <p>June</p>
+    <div class="row mb-3">
+      <div class="col-6">
+        <div class="input-group">
+          <span class="input-group-text" id="income6-label">Income</span>
+          <input type="number" class="form-control" id="income6" placeholder="Enter income" aria-label="Income" aria-describedby="income6-label">
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="input-group">
+          <span class="input-group-text" id="expenses6-label">Expenses</span>
+          <input type="number" class="form-control" id="expenses6" placeholder="Enter expenses" aria-label="Expenses" aria-describedby="expenses6-label">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-md-6">
+    <p>July</p>
+    <div class="row mb-3">
+      <div class="col-6">
+        <div class="input-group">
+          <span class="input-group-text" id="income7-label">Income</span>
+          <input type="number" class="form-control" id="income7" placeholder="Enter income" aria-label="Income" aria-describedby="income7-label">
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="input-group">
+          <span class="input-group-text" id="expenses7-label">Expenses</span>
+          <input type="number" class="form-control" id="expenses7" placeholder="Enter expenses" aria-label="Expenses" aria-describedby="expenses7-label">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-md-6">
+    <p>August</p>
+    <div class="row mb-3">
+      <div class="col-6">
+        <div class="input-group">
+          <span class="input-group-text" id="income8-label">Income</span>
+          <input type="number" class="form-control" id="income8" placeholder="Enter income" aria-label="Income" aria-describedby="income8-label">
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="input-group">
+          <span class="input-group-text" id="expenses8-label">Expenses</span>
+          <input type="number" class="form-control" id="expenses8" placeholder="Enter expenses" aria-label="Expenses" aria-describedby="expenses8-label">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-md-6">
+    <p>September</p>
+    <div class="row mb-3">
+      <div class="col-6">
+        <div class="input-group">
+          <span class="input-group-text" id="income9-label">Income</span>
+          <input type="number" class="form-control" id="income9" placeholder="Enter income" aria-label="Income" aria-describedby="income9-label">
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="input-group">
+          <span class="input-group-text" id="expenses9-label">Expenses</span>
+          <input type="number" class="form-control" id="expenses9" placeholder="Enter expenses" aria-label="Expenses" aria-describedby="expenses9-label">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-md-6">
+    <p>October</p>
+    <div class="row mb-3">
+      <div class="col-6">
+        <div class="input-group">
+          <span class="input-group-text" id="income10-label">Income</span>
+          <input type="number" class="form-control" id="income10" placeholder="Enter income" aria-label="Income" aria-describedby="income10-label">
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="input-group">
+          <span class="input-group-text" id="expenses10-label">Expenses</span>
+          <input type="number" class="form-control" id="expenses10" placeholder="Enter expenses" aria-label="Expenses" aria-describedby="expenses10-label">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-md-6">
+    <p>November</p>
+    <div class="row mb-3">
+      <div class="col-6">
+        <div class="input-group">
+          <span class="input-group-text" id="income11-label">Income</span>
+          <input type="number" class="form-control" id="income11" placeholder="Enter income" aria-label="Income" aria-describedby="income11-label">
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="input-group">
+          <span class="input-group-text" id="expenses11-label">Expenses</span>
+          <input type="number" class="form-control" id="expenses11" placeholder="Enter expenses" aria-label="Expenses" aria-describedby="expenses11-label">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-md-6">
+    <p>December</p>
+    <div class="row mb-3">
+      <div class="col-6">
+        <div class="input-group">
+          <span class="input-group-text" id="income12-label">Income</span>
+          <input type="number" class="form-control" id="income12" placeholder="Enter income" aria-label="Income" aria-describedby="income12-label">
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="input-group">
+          <span class="input-group-text" id="expenses12-label">Expenses</span>
+          <input type="number" class="form-control" id="expenses12" placeholder="Enter expenses" aria-label="Expenses" aria-describedby="expenses12-label">
+        </div>
+      </div>
+    </div>
+  </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="chart" role="tabpanel" aria-labelledby="chart-tab">
+                <!-- Chart tab content -->
+                <div>
+                    <h2>Bar Chart Example</h2>
+                    <canvas id="myBarChart" width="400" height="200"></canvas>
+                </div>
+                <!-- Bootstrap button for downloading chart -->
+                <div class="mb-3">
+                    <button class="btn btn-primary" id="downloadChart">Download Chart</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Local Bootstrap JS -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap JavaScript for Tabs -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
